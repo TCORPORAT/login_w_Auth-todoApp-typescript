@@ -1,3 +1,4 @@
+// @ts-nocheck
 import Todo from './Todo';
 
 export default function TodoList({ todos, toggleTodo, deleteTodo }) {

@@ -1,18 +1,19 @@
+// @ts-nocheck
 import { useState, useEffect } from "react";
 import TodoList from "./TodoList";
 import { NewTodoForm } from "./TodoForm";
+import { data } from "../data";
 
-type storageValue = [
-  {
+interface storageValue {
     id:string;
     title:string;
     completed:boolean;
-  }]
+}
 
 export default function DashboardPage() {
   const [todos, setTodos] = useState(() => {
-    const localValue:storageValue = localStorage.getItem("ITEMS");
-    if (localValue === '') return [];
+    const localValue:storageValue[] = localStorage.getItem("ITEMS");
+    if (localValue === null) return data;
     return JSON.parse(localValue);
   });
 
